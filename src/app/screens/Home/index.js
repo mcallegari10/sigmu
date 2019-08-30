@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import * as handTrack from 'handtrackjs';
 
-import logo from './assets/logo.svg';
 import styles from './styles.module.scss';
 
+navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(mediaStream => {
+  const video = document.querySelector('video');
+  video.srcObject = mediaStream;
+  video.onloadedmetadata = function(e) {
+    video.play();
+  };
+});
+
 function Home() {
+  useEffect(() => {
+    const video = document.getElementById('videoSource');
+    // Load the model.
+    handTrack.load().then(model => {
+      // detect objects in the image.
+      console.log("model loaded")
+      model.detect(video).then(predictions => {
+        console.log('Predictions: ', predictions); 
+      });
+    });
+  }, []);
+
   return (
     <div className={styles.app}>
-      <header className={styles.appHeader}>
-        <img src={logo} className={styles.appLogo} alt="logo" />
-        <p className={styles.text}>
-          Edit <code>src/app/index.js</code> and save to reload.
-        </p>
-        <a className={styles.appLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <canvas id="canvas" width="500" height="500" />
+      <video id="videoSource" />
     </div>
   );
 }
