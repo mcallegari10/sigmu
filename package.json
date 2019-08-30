@@ -25,6 +25,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "seamless-immutable": "^7.1.4",
+    "three": "^0.108.0",
     "wolox-equalizer": "0.0.3"
   },
   "scripts": {
@@ -90,8 +91,8 @@
     "type": "git"
   },
   "engines": {
-    "node": ">= 10.15.3",
-    "npm": ">= 6.9.0"
+    "node": ">= 10.13.0",
+    "npm": ">= 6.4.1"
   },
   "husky": {
     "hooks": {
