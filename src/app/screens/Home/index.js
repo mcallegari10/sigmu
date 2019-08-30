@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import init from '../Objects'
 
 import logo from './assets/logo.svg';
 import styles from './styles.module.scss';
 
 function Home() {
+  useEffect(() => init(), []);
   return (
     <div className={styles.app}>
       <header className={styles.appHeader}>
@@ -15,6 +18,7 @@ function Home() {
           Learn React
         </a>
       </header>
+      <div id="example" />
     </div>
   );
 }
