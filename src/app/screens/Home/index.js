@@ -17,13 +17,10 @@ const modelParams = {
 }
 
 function startVideo() {
-    handTrack.load(modelParams).then(function (status) {
-        console.log("video started", status);
-        if (status) {
+    handTrack.load(modelParams).then(() => {
             isVideo = true
             runDetection()
-        }
-    });
+        });
 }
 
 function runDetection() {
