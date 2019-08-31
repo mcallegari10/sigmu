@@ -29,6 +29,10 @@
   text-decoration: underline;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 @keyframes app-logo-spin {
   from {
     transform: rotate(0deg);
