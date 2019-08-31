@@ -7,6 +7,7 @@
     "apisauce": "^1.1.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "connected-react-router": "^6.5.2",
+    "face-api.js": "^0.20.1",
     "g": "^2.0.1",
     "handtrackjs": "0.0.13",
     "history": "^4.9.0",
@@ -27,6 +28,8 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "seamless-immutable": "^7.1.4",
+    "spectacle": "^5.7.0",
+    "three": "^0.108.0",
     "wolox-equalizer": "0.0.3"
   },
   "scripts": {
@@ -92,12 +95,7 @@
     "type": "git"
   },
   "engines": {
-    "node": ">= 10.15.3",
-    "npm": ">= 6.9.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint-diff && npm run lint-scss"
-    }
+    "node": ">= 10.13.0",
+    "npm": ">= 6.4.1"
   }
 }
