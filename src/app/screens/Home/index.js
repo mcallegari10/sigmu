@@ -20,7 +20,7 @@ function startVideo() {
     handTrack.load(modelParams).then(model => {
       model.detect(video).then(predictions => {
         console.log("Predictions: ", predictions);
-        model.renderPredictions(predictions, canvas, context, video);
+        // model.renderPredictions(predictions, canvas, context, video);
     });
   });
 }
