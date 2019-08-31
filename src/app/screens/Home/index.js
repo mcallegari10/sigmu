@@ -17,7 +17,7 @@ const modelParams = {
 }
 
 function startVideo() {
-    handTrack.startVideo(video).then(function (status) {
+    handTrack.load(modelParams).then(function (status) {
         console.log("video started", status);
         if (status) {
             isVideo = true
@@ -49,10 +49,7 @@ function Home() {
     video = document.getElementById("myvideo");
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");
-    handTrack.load(modelParams).then(lmodel => {
-      model = lmodel
-      startVideo();
-    });
+    startVideo();
   }, []);
 
   return (
