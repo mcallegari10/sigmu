@@ -3,8 +3,8 @@ import * as handTrack from 'handtrackjs';
 
 import styles from './styles.module.scss';
 
-// let isVideo = false;
-// let model = null;
+let isVideo = false;
+let model = null;
 let video = null;
 let canvas = null;
 let context = null;
@@ -17,23 +17,16 @@ const modelParams = {
 }
 
 function startVideo() {
-    handTrack.load(modelParams).then(model => {
-    runDetection(model);
-  });
+            runDetection()
 }
 
-// handTrack.load().then(model => {
-//   // detect objects in the image.
-//   model.detect(img).then(predictions => {
-//     console.log('Predictions: ', predictions); 
-//   });
-// });
-
-function runDetection(model) {
+function runDetection() {
     model.detect(video).then(predictions => {
         console.log("Predictions: ", predictions);
         model.renderPredictions(predictions, canvas, context, video);
-        requestAnimationFrame(runDetection);
+        if (isVideo) {
+            requestAnimationFrame(runDetection);
+        }
     });
 }
 
@@ -51,6 +44,9 @@ function Home() {
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");
     startVideo();
+    handTrack.load(modelParams).then(lmodel => {
+      model = lmodel
+    });
   }, []);
 
   return (
