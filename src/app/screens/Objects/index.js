@@ -28,5 +28,5 @@ var animate = function () {
 animate()
 
 export default function init() {
-  document.getElementById('example').appendChild(renderer.domElement);
+	document.getElementById('example').appendChild(renderer.domElement);
 }
