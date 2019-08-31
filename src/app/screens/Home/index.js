@@ -57,8 +57,8 @@ function Home() {
 
   return (
     <div className={styles.app}>
-      <canvas id="canvas" className="border canvasbox"></canvas>
-      <video className="videobox canvasbox" autoPlay="autoplay" id="myvideo"></video>
+      <canvas id="canvas" className={`${styles.canvasbox}`}></canvas>
+      <video className={`${styles.videobox}`} autoPlay="autoplay" id="myvideo"></video>
     </div>
   );
 }
