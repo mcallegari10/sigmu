@@ -1,22 +1,36 @@
-import React from 'react';
-
-import logo from './assets/logo.svg';
-import styles from './styles.module.scss';
-
-function Home() {
-  return (
-    <div className={styles.app}>
-      <header className={styles.appHeader}>
-        <img src={logo} className={styles.appLogo} alt="logo" />
-        <p className={styles.text}>
-          Edit <code>src/app/index.js</code> and save to reload.
-        </p>
-        <a className={styles.appLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// index.js
+ 
+import React, { Component } from 'react';
+import {
+  Appear,
+  BlockQuote,
+  Cite,
+  CodePane,
+  Code,
+  Deck,
+  Fill,
+  Fit,
+  Heading,
+  Image,
+  Layout,
+  ListItem,
+  List,
+  Quote,
+  Slide,
+  Text, 
+  SlideSet
+} from 'spectacle';
+ 
+export default class extends Component {
+  render() {
+    return (
+      <Deck>
+        <SlideSet style={{ border: '2px solid red' }}>
+          <Slide>Slide1</Slide>
+          <Slide>Slide2</Slide>
+          <Slide>Slide3</Slide>
+        </SlideSet>
+      </Deck>
+    );
+  }
 }
-
-export default Home;
