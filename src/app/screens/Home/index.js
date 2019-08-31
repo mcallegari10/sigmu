@@ -52,7 +52,7 @@ function Home() {
 
     startVideo();
     handTrack.load(modelParams).then(lmodel => {
-      model = lmodel
+      console.log('Predictions: ', lmodel); 
     });
   }, []);
 
