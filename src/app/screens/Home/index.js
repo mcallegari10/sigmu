@@ -3,8 +3,8 @@ import * as handTrack from 'handtrackjs';
 
 import styles from './styles.module.scss';
 
-let isVideo = false;
-let model = null;
+// let isVideo = false;
+// let model = null;
 let video = null;
 let canvas = null;
 let context = null;
@@ -18,10 +18,7 @@ const modelParams = {
 
 function startVideo() {
     handTrack.load(modelParams).then(model => {
-      model.detect(video).then(predictions => {
-        console.log("Predictions: ", predictions);
-        // model.renderPredictions(predictions, canvas, context, video);
-    });
+    runDetection(model);
   });
 }
 
@@ -32,15 +29,13 @@ function startVideo() {
 //   });
 // });
 
-// function runDetection() {
-//     model.detect(video).then(predictions => {
-//         console.log("Predictions: ", predictions);
-//         model.renderPredictions(predictions, canvas, context, video);
-//         if (isVideo) {
-//             requestAnimationFrame(runDetection);
-//         }
-//     });
-// }
+function runDetection(model) {
+    model.detect(video).then(predictions => {
+        console.log("Predictions: ", predictions);
+        model.renderPredictions(predictions, canvas, context, video);
+        requestAnimationFrame(runDetection);
+    });
+}
 
 navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(mediaStream => {
   const video = document.querySelector('video');
