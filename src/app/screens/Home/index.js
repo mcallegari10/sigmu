@@ -6,14 +6,14 @@ import styles from './styles.module.scss';
 let isVideo = false;
 let model = null;
 let video = null;
-let canvas = null;
+// let canvas = null;
 let context = null;
 
 const modelParams = {
     flipHorizontal: true,   // flip e.g for video  
     maxNumBoxes: 2,        // maximum number of boxes to detect
     iouThreshold: 0.5,      // ioU threshold for non-max suppression
-    scoreThreshold: 0.65,    // confidence threshold for predictions.
+    scoreThreshold: 0.7,    // confidence threshold for predictions.
 }
 
 function startVideo() {
@@ -29,7 +29,7 @@ function startVideo() {
 function runDetection() {
     model.detect(video).then(predictions => {
         console.log("Predictions: ", predictions);
-        model.renderPredictions(predictions, canvas, context, video);
+        model.renderPredictions(predictions, context, video);
         if (isVideo) {
             requestAnimationFrame(runDetection);
         }
@@ -47,8 +47,8 @@ navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(mediaStre
 function Home() {
   useEffect(() => { 
     video = document.getElementById("myvideo");
-    canvas = document.getElementById("canvas");
-    context = canvas.getContext("2d");
+    // canvas = document.getElementById("canvas");
+    // context = canvas.getContext("2d");
 
     startVideo();
     handTrack.load(modelParams).then(lmodel => {
@@ -58,7 +58,7 @@ function Home() {
 
   return (
     <div className={styles.app}>
-      <canvas id="canvas" className="border canvasbox"></canvas>
+      {/* <canvas id="canvas" className="border canvasbox"></canvas> */}
       <video className="videobox canvasbox" autoPlay="autoplay" id="myvideo"></video>
     </div>
   );
