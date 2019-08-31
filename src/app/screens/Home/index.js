@@ -36,13 +36,13 @@ function runDetection() {
     });
 }
 
-// navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(mediaStream => {
-//   const video = document.querySelector('video');
-//   video.srcObject = mediaStream;
-//   video.onloadedmetadata = function(e) {
-//     video.play();
-//   };
-// });
+navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(mediaStream => {
+  const video = document.querySelector('video');
+  video.srcObject = mediaStream;
+  video.onloadedmetadata = function(e) {
+    video.play();
+  };
+});
 
 function Home() {
   useEffect(() => { 
