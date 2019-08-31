@@ -52,7 +52,7 @@ function Home() {
     handTrack.load(modelParams).then(lmodel => {
       model = lmodel
     });
-    startVideo();
+    runDetection();
   }, []);
 
   return (
