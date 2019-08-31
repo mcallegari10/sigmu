@@ -47,8 +47,8 @@ navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(mediaStre
 function Home() {
   useEffect(() => { 
     video = document.getElementById("myvideo");
-    // canvas = document.getElementById("canvas");
-    // context = canvas.getContext("2d");
+    canvas = document.getElementById("canvas");
+    context = canvas.getContext("2d");
 
     startVideo();
     handTrack.load(modelParams).then(lmodel => {
@@ -58,7 +58,7 @@ function Home() {
 
   return (
     <div className={styles.app}>
-      {/* <canvas id="canvas" className="border canvasbox"></canvas> */}
+      <canvas id="canvas" className="border canvasbox"></canvas>
       <video className="videobox canvasbox" autoPlay="autoplay" id="myvideo"></video>
     </div>
   );
