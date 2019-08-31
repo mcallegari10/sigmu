@@ -16,15 +16,15 @@ const modelParams = {
     scoreThreshold: 0.7,    // confidence threshold for predictions.
 }
 
-function startVideo() {
-    handTrack.startVideo(video).then(function (status) {
-        console.log("video started", status);
-        if (status) {
-            isVideo = true
-            runDetection()
-        }
-    });
-}
+// function startVideo() {
+//     handTrack.startVideo(video).then(function (status) {
+//         console.log("video started", status);
+//         if (status) {
+//             isVideo = true
+//             runDetection()
+//         }
+//     });
+// }
 
 function runDetection() {
     model.detect(video).then(predictions => {
@@ -49,10 +49,10 @@ function Home() {
     video = document.getElementById("myvideo");
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");
-
-    startVideo();
+    // startVideo();
     handTrack.load(modelParams).then(lmodel => {
-      console.log('Predictions: ', lmodel); 
+      model = lmodel
+      runDetection()
     });
   }, []);
 
