@@ -36,19 +36,20 @@ function runDetection() {
     });
 }
 
-navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(mediaStream => {
-  const video = document.querySelector('video');
-  video.srcObject = mediaStream;
-  video.onloadedmetadata = function(e) {
-    video.play();
-  };
-});
+// navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(mediaStream => {
+//   const video = document.querySelector('video');
+//   video.srcObject = mediaStream;
+//   video.onloadedmetadata = function(e) {
+//     video.play();
+//   };
+// });
 
 function Home() {
   useEffect(() => { 
     video = document.getElementById("myvideo");
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");
+
     startVideo();
     handTrack.load(modelParams).then(lmodel => {
       model = lmodel
@@ -57,8 +58,8 @@ function Home() {
 
   return (
     <div className={styles.app}>
-      <canvas id="canvas" className={`${styles.canvasbox}`}></canvas>
-      <video className={`${styles.videobox}`} autoPlay="autoplay" id="myvideo"></video>
+      <canvas id="canvas" className="border canvasbox"></canvas>
+      <video className="videobox canvasbox" autoPlay="autoplay" id="myvideo"></video>
     </div>
   );
 }
