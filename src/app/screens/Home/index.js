@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 let isVideo = false;
 let model = null;
 let video = null;
-// let canvas = null;
+let canvas = null;
 let context = null;
 
 const modelParams = {
@@ -29,7 +29,7 @@ function startVideo() {
 function runDetection() {
     model.detect(video).then(predictions => {
         console.log("Predictions: ", predictions);
-        model.renderPredictions(predictions, context, video);
+        model.renderPredictions(predictions, canvas, context, video);
         if (isVideo) {
             requestAnimationFrame(runDetection);
         }
