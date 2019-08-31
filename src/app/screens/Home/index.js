@@ -49,11 +49,10 @@ function Home() {
     video = document.getElementById("myvideo");
     canvas = document.getElementById("canvas");
     context = canvas.getContext("2d");
+    startVideo();
     handTrack.load(modelParams).then(lmodel => {
       model = lmodel
     });
-    runDetection();
-    //comment
   }, []);
 
   return (

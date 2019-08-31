@@ -9,23 +9,31 @@
 }
 
 .app-header {
+  align-items: center;
   background-color: #282C34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  min-height: 100vh;
+}
+
+.canvasbox {
+  visibility: hidden;
+}
+
+.videobox {
+  visibility: hidden;
 }
 
 .text {
+  color: #FFF;
   font-size: calc(10px + 2vmin);
   margin-bottom: calc(30px + 2vmin);
-  color: #FFF;
 }
 
 .app-link {
-  font-size: calc(10px + 2vmin);
   color: #61DAFB;
+  font-size: calc(10px + 2vmin);
   text-decoration: underline;
 }
 
