@@ -17,21 +17,30 @@ const modelParams = {
 }
 
 function startVideo() {
-    handTrack.load(modelParams).then(() => {
-            isVideo = true
-            runDetection()
-        });
-}
-
-function runDetection() {
-    model.detect(video).then(predictions => {
+    handTrack.load(modelParams).then(model => {
+      model.detect(video).then(predictions => {
         console.log("Predictions: ", predictions);
         model.renderPredictions(predictions, canvas, context, video);
-        if (isVideo) {
-            requestAnimationFrame(runDetection);
-        }
     });
+  });
 }
+
+// handTrack.load().then(model => {
+//   // detect objects in the image.
+//   model.detect(img).then(predictions => {
+//     console.log('Predictions: ', predictions); 
+//   });
+// });
+
+// function runDetection() {
+//     model.detect(video).then(predictions => {
+//         console.log("Predictions: ", predictions);
+//         model.renderPredictions(predictions, canvas, context, video);
+//         if (isVideo) {
+//             requestAnimationFrame(runDetection);
+//         }
+//     });
+// }
 
 navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(mediaStream => {
   const video = document.querySelector('video');
