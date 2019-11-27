@@ -5,9 +5,9 @@ import Loading from '../Spinner/components/loading';
 
 import { DEFAULT_MAX_DURATION } from './constants';
 
-function CustomSuspense({ maxDuration, fallback, children }) {
+function CustomSuspense({ fallback, children }) {
   return (
-    <Suspense maxDuration={maxDuration} fallback={fallback}>
+    <Suspense fallback={fallback}>
       {children}
     </Suspense>
   );
