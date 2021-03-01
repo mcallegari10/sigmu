@@ -29,7 +29,7 @@
     "reselect": "^4.0.0",
     "seamless-immutable": "^7.1.4",
     "spectacle": "^5.7.0",
-    "three": "^0.108.0",
+    "three": "^0.125.0",
     "wolox-equalizer": "0.0.3"
   },
   "scripts": {
